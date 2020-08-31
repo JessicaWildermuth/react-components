@@ -4,25 +4,25 @@ class GrocertListItem extends React.Component {
     super(props);
 
     this.state = {
-      hover: false
+      opacity: 1
     };
   }
 
   mouseEnter() {
     this.setState({
-      hover: true
+      opacity: 0.5
     });
   }
 
   mouseLeave() {
     this.setState({
-      hover: false
+      opacity: 1
     });
   }
 
   render() {
     var style = {
-      fontWeight: this.state.hover ? 'bold' : 'none'
+      opacity: this.state.opacity
     };
     return (
 
