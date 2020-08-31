@@ -1,39 +1,52 @@
 // TODO
-var App = () => {
-  return (
+class GrocertListItem extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      hover: false
+    };
+  }
+
+  mouseEnter() {
+    this.setState({
+      hover: true
+    });
+  }
+
+  mouseLeave() {
+    this.setState({
+      hover: false
+    });
+  }
+
+  render() {
+    var style = {
+      fontWeight: this.state.hover ? 'bold' : 'none'
+    };
+    return (
+
+      <li style={style} onMouseEnter={this.mouseEnter.bind(this)}
+      onMouseLeave={this.mouseLeave.bind(this)}>{this.props.item}</li>
+    );
+  }
+}
+var App = () => (
   <div>
     <h1>My Grocery List</h1>
-    <GroceryList groceryitems={['Wine', 'Bubble Bath', 'Cheese']} />
+    <GroceryList items={['Wine', 'Bubble Bath', 'Cheese', 'Chocolate']} />
   </div>
-  )
-}
-var GroceryList = (props) => {
-  return (
-    <ul>
-      <li>{props.groceryitems[0]}</li>
-      <li>{props.groceryitems[1]}</li>
-      <li>{props.groceryitems[2]}</li>
-    </ul>
+);
 
-  );
-}
+var GroceryList = (props) => (
+  <ul>
+    {props.items.map(item =>
+    <GrocertListItem item={item} />
+    )}
+  </ul>
 
-// var Wine = () => {
-//   return (
-//     <li>Wine</li>
-//   );
-// }
+);
 
-// var BubbleBath = () => {
-//   return (
-//     <li>Bubble Bath</li>
-//   );
-// }
-// var Cheese = () => {
-//   return (
-//   <li>Cheese</li>
-//   );
-// }
 
 ReactDOM.render(<App />, document.getElementById("app"));
 
