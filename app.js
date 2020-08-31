@@ -10,19 +10,19 @@ class GrocertListItem extends React.Component {
 
   mouseEnter() {
     this.setState({
-      opacity: 0.5
+      fontWeight: 'bold'
     });
   }
 
   mouseLeave() {
     this.setState({
-      opacity: 1
+      fontWeight: 'normal'
     });
   }
 
   render() {
     var style = {
-      opacity: this.state.opacity
+      fontWeight: this.state.fontWeight
     };
     return (
       <li style={style} onMouseEnter={this.mouseEnter.bind(this)}
