@@ -25,7 +25,6 @@ class GrocertListItem extends React.Component {
       opacity: this.state.opacity
     };
     return (
-
       <li style={style} onMouseEnter={this.mouseEnter.bind(this)}
       onMouseLeave={this.mouseLeave.bind(this)}>{this.props.item}</li>
     );
